@@ -8,7 +8,7 @@ from shutil import rmtree
 def get_selections():
     try:
         word = win32.gencache.EnsureDispatch('Word.Application')
-        word.ActiveDocument
+        return word.ActiveDocument, word.Selection
     except AttributeError:
         paths = list(walk(__gen_path__))
         rmtree(paths[0][0] + '\\' + paths[0][1][0])
